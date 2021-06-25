@@ -1409,12 +1409,14 @@ function App() {
                         id="exampleFormControlFile1"
                         accept="image/*"
                         onChange={(e) => {
-                          getBase64(e.target.files[0], (pic) => {
-                            setEvent({
-                              ...event,
-                              pic,
+                          if (e.target.files[0]) {
+                            getBase64(e.target.files[0], (pic) => {
+                              setEvent({
+                                ...event,
+                                pic,
+                              });
                             });
-                          });
+                          }
                         }}
                       />
                     </div>
